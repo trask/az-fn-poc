@@ -71,9 +71,12 @@
               <value>~2</value>
             </property>
             <property>
-              <!-- point to the agent jar inside of the deployment directory -->
-              <name>JAVA_OPTS</name>
-              <value>-javaagent:applicationinsights-agent-codeless-2.5.1.jar</value>
+              <name>ApplicationInsightsAgent_EXTENSION_VERSION</name>
+              <value>~2</value>
+            </property>
+            <property>
+              <name>XDT_MicrosoftApplicationInsights_Java</name>
+              <value>1</value>
             </property>
           </appSettings>
         </configuration>
@@ -83,31 +86,6 @@
             <goals>
               <goal>package</goal>
             </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>3.1.0</version>
-        <executions>
-          <execution>
-            <id>copy-resources</id>
-            <phase>package</phase>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <overwrite>true</overwrite>
-              <outputDirectory>${stagingDirectory}</outputDirectory>
-              <resources>
-                <resource>
-                  <directory>${project.basedir}</directory>
-                  <includes>
-                    <include>applicationinsights-agent-codeless-2.5.1.jar</include>
-                  </includes>
-                </resource>
-              </resources>
-            </configuration>
           </execution>
         </executions>
       </plugin>
